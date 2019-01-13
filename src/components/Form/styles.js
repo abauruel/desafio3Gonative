@@ -13,8 +13,9 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     backgroundColor: colors.white,
-
+    padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
+    fontSize: 16,
   },
   button: {
     backgroundColor: colors.lighter,
