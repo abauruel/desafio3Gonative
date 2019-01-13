@@ -1,9 +1,13 @@
-import {
-  createAppContainer,
-  createSwitchNavigation,
-  createBottomTabNavigation,
-} from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import Issues from './pages/Issues';
 
-const Routes = (userLogged = false) => createAppContainer(createSwitchNavigation());
+const Routes = createAppContainer(
+  createSwitchNavigator(
+    {
+      Issues,
+    },
+    { initialRouteName: 'Issues' },
+  ),
+);
 
 export default Routes;
