@@ -13,24 +13,36 @@ export default class Issues extends Component {
   state = {
     repositories: [],
     refreshed: false,
+    repo: '',
   };
 
   componentDidMount() {}
 
-  insertRepos = async (repo) => {
-    console.tron.log(repo);
+  insertRepos = async () => {
+    const { repo, repositories } = this.state;
+
     const { data } = await api.get(`/repos/${repo}`);
+
     this.setState({
-      respositories: [...this.state.repositories, ...data],
+      repositories: [...repositories, data],
     });
+
+    console.tron.log(repositories);
   };
 
+  changeRepo = text => this.setState({ repo: text });
+
   render() {
+    const { repo, repositories } = this.state;
     return (
       <View style={styles.container}>
         <Header />
-        <Form insertRepos={this.insertRepos} />
-        <ScrollView />
+        <Form insertRepos={this.insertRepos} name={repo} changeRepo={this.changeRepo} />
+        <ScrollView>
+          {repositories.map(repos => (
+            <Text>{repos.name}</Text>
+          ))}
+        </ScrollView>
       </View>
     );
   }

@@ -6,12 +6,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
 
-const Form = ({ insertRepos }) => (
+const Form = ({ insertRepos, repo, changeRepo }) => (
   <View style={styles.container}>
     <View style={styles.formContainer}>
-      <TextInput style={styles.input} placeholder="Adicionar novo repositorio" />
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        {}
+      <TextInput
+        style={styles.input}
+        placeholder="Adicionar novo repositorio"
+        value={repo}
+        onChangeText={changeRepo}
+      />
+      <TouchableOpacity style={styles.button} onPress={insertRepos}>
         <Icon name="plus" size={20} style={styles.icon} />
       </TouchableOpacity>
     </View>
