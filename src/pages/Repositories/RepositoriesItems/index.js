@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-const RepositoriesItems = ({ repos }) => (
+const RepositoriesItems = ({ repos, repoIssue }) => (
   <View style={styles.container}>
     <Image style={styles.img} source={{ uri: repos.organization.avatar_url }} />
     <View style={styles.names}>
@@ -17,7 +17,7 @@ const RepositoriesItems = ({ repos }) => (
         {repos.organization.login ? repos.organization.login : repos.full_name}
       </Text>
     </View>
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={() => repoIssue(repos.name)}>
       <Icon name="angle-right" size={16} style={styles.seta} />
     </TouchableOpacity>
   </View>
@@ -31,6 +31,7 @@ RepositoriesItems.propTypes = {
       login: PropTypes.string,
     }),
   }).isRequired,
+  repoIssue: PropTypes.func.isRequired,
 };
 
 export default RepositoriesItems;

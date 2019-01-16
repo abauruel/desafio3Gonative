@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import styles from './styles';
 
-const Header = () => (
+const Header = ({ title }) => (
   <View style={styles.container}>
-    <Text style={styles.title}>GitIssues</Text>
+    <TouchableOpacity onPress={() => this.props.navigation.goBack()} />
+    <Text style={styles.title}>{title}</Text>
   </View>
 );
 
