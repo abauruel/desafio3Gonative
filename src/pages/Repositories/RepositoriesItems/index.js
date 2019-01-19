@@ -17,7 +17,7 @@ const RepositoriesItems = ({ repos, repoIssue }) => (
         {repos.organization.login ? repos.organization.login : repos.full_name}
       </Text>
     </View>
-    <TouchableOpacity style={styles.button} onPress={() => repoIssue(repos.name)}>
+    <TouchableOpacity style={styles.button} onPress={() => repoIssue(repos.full_name)}>
       <Icon name="angle-right" size={16} style={styles.seta} />
     </TouchableOpacity>
   </View>

@@ -17,4 +17,4 @@ const Header = ({ title, back }) => (
   </View>
 );
 
-export default Header;
+export default withNavigation(Header);

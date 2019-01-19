@@ -12,6 +12,19 @@ import styles from './styles'
 import api from '~/services/api'
 
 export default class Repositories extends Component {
+  static navigationOptions ={
+    title: "GitIssues",
+    headerTitleStyle:{
+      padding: 10,
+    },
+    headerTitleContainerStyle:{
+      justifyContent:'center',
+      fontWeight: 'bold',
+      
+       
+    }
+    
+  }
   state = {
     repositories: [],
     refreshing: false,
@@ -56,9 +69,9 @@ export default class Repositories extends Component {
 
   repoIssue = name => {
     const { navigation } = this.props
-    
-    navigation.navigate('Issues',{ repositorio: `${name}`})    
-    
+
+    navigation.navigate('Issues',{ repositorio: `${name}`})
+
   }
   renderList = () => {
     const { repositories, refreshing } = this.state;
@@ -74,7 +87,7 @@ export default class Repositories extends Component {
     const { repo, loading } = this.state;
     return (
       <View style={styles.container}>
-        <Header title="GitIssues"/>
+        
         <Form insertRepos={this.insertRepos} name={repo} changeRepo={this.changeRepo} />
         {loading ? <ActivityIndicator style={styles.loading} /> : this.renderList()}
       </View>
